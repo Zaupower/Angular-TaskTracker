@@ -28,7 +28,7 @@ To use that values has css style they should be used inside ngStyle like:
 # Events
 For events like button click just add <button (click)="onClick()">, and inside the component class add onClick() function.
 
-# Events, calling mother components events from child component     
+# Events, calling mother component events from child component     
 To make this is nessessary to add on mother component html file:     <app-childComponent (btnClick)="toggleAddTask()">     
 And on the mother component class file:          
 toggleAddTask(){    
@@ -40,7 +40,12 @@ On the child component class file:
  public onClick(){     
     this.btnClick.emit();     
   }     
-On the child html      
-<button class="btn" (click)="onClick()"> {{text}} </button>      
+On the child html:      
+<button class="btn" (click)="onClick()"> {{text}} </button>   
+
+# Loop over array of elements in Html
+Use <p *ngFor="let task of tasks">{{task.text}}</p> 
+Note: tasks should be defined in class has array of objects      
+
 
 
