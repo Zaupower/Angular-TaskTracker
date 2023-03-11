@@ -21,7 +21,26 @@ It's  allways a good ideia to wrap components with a container like:
 # Passing information from one component to another    
 In Angular its possible to call one component inside another by Embbeding, and add values like this <app-componentName text="someValue"></app-componentName> 
 that can be instantiated inside the componentName.component.ts class
-using '@Input() text: string | undefined;' inside the class, then, inside the html component that receives the values it is possible to get the value using string Interpolation, {{text}}.
+using '@Input() text: string | undefined;' inside the class, then, inside the html component that receives the values it is possible to get the value using string Interpolation, {{text}}.     
+To use that values has css style they should be used inside ngStyle like:
+<button [ngStyle]="{ 'background-color': inputedColorString }">      
 
+# Events
+For events like button click just add <button (click)="onClick()">, and inside the component class add onClick() function.
+
+# Events, calling mother components events from child component     
+To make this is nessessary to add on mother component html file:     <app-childComponent (btnClick)="toggleAddTask()">     
+And on the mother component class file:          
+toggleAddTask(){    
+    console.log('toggle')    
+  }    
+On the child component class file:     
+@Output() btnClick = new EventEmitter()       
+       
+ public onClick(){     
+    this.btnClick.emit();     
+  }     
+On the child html      
+<button class="btn" (click)="onClick()"> {{text}} </button>      
 
 
