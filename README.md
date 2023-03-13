@@ -47,5 +47,6 @@ On the child html:
 Use <p *ngFor="let task of tasks">{{task.text}}</p> 
 Note: tasks should be defined in class has array of objects      
 
-
+# Use Services to fetch date inside a component
+Add the service to the constructor, and if you want to fetch the data when the component is loaded equalize the date to some variable used on the front end inside the ngOnInit() function
 
